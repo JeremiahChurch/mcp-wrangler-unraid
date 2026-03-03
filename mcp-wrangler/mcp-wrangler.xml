@@ -8,8 +8,8 @@
     <TagDescription>Latest stable release</TagDescription>
   </Branch>
   <Branch>
-    <Tag>0.2.0</Tag>
-    <TagDescription>v0.2.0 - Security hardening release</TagDescription>
+    <Tag>0.2.1</Tag>
+    <TagDescription>v0.2.1 - Docker env-var config fix</TagDescription>
   </Branch>
   <Network>bridge</Network>
   <Privileged>false</Privileged>
