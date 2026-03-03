@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+  <Name>mcp-wrangler</Name>
+  <Repository>ghcr.io/jeremiahchurch/mcp-wrangler:latest</Repository>
+  <Registry>https://github.com/JeremiahChurch/mcp-wrangler/pkgs/container/mcp-wrangler</Registry>
+  <Branch>
+    <Tag>latest</Tag>
+    <TagDescription>Latest stable release</TagDescription>
+  </Branch>
+  <Branch>
+    <Tag>0.2.0</Tag>
+    <TagDescription>v0.2.0 - Security hardening release</TagDescription>
+  </Branch>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/JeremiahChurch/mcp-wrangler/issues</Support>
+  <ReadMe>https://github.com/JeremiahChurch/mcp-wrangler#readme</ReadMe>
+  <GitHub>https://github.com/JeremiahChurch/mcp-wrangler</GitHub>
+  <Project>https://github.com/JeremiahChurch/mcp-wrangler</Project>
+  <Overview>
+    MCP Wrangler is a management proxy for Model Context Protocol (MCP) servers.
+    It sits between your AI tools (Claude Code, Claude Desktop, Cursor, etc.) and your
+    MCP servers, providing a single authenticated endpoint that handles Docker container
+    lifecycle, health monitoring, OAuth flows, access control, and multi-transport proxying.
+    Manage all your MCP servers from one web UI.
+  </Overview>
+  <Category>Tools: AI</Category>
+  <WebUI>http://[IP]:[PORT:8080]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/JeremiahChurch/mcp-wrangler-unraid/main/mcp-wrangler/mcp-wrangler.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/JeremiahChurch/mcp-wrangler-unraid/main/images/mcp-wrangler-icon.png</Icon>
+  <ExtraParams/>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/mcp-wrangler</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/var/run/docker.sock</HostDir>
+      <ContainerDir>/var/run/docker.sock</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value/>
+      <Name>MCP_WRANGLER_ENCRYPTION_KEY</Name>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MCP_WRANGLER_SESSION_SECRET</Name>
+    </Variable>
+    <Variable>
+      <Value/>
+      <Name>MCP_WRANGLER_ADMIN_PASSWORD</Name>
+    </Variable>
+    <Variable>
+      <Value>/data/mcp-wrangler.db</Value>
+      <Name>MCP_WRANGLER_DB_PATH</Name>
+    </Variable>
+  </Environment>
+  <Config Type="Port" Name="Web UI Port" Target="8080" Default="8080" Mode="tcp" Display="always" Required="true" Description="Port for the MCP Wrangler web UI and API proxy.">8080</Config>
+  <Config Type="Path" Name="Data Directory" Target="/data" Default="/mnt/user/appdata/mcp-wrangler" Mode="rw" Display="always" Required="true" Description="Persistent storage for SQLite database.">/mnt/user/appdata/mcp-wrangler</Config>
+  <Config Type="Path" Name="Docker Socket" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="rw" Display="advanced" Required="true" Description="Docker socket for managing MCP server containers (stdio and HTTP server types).">/var/run/docker.sock</Config>
+  <Config Type="Variable" Name="Encryption Key" Target="MCP_WRANGLER_ENCRYPTION_KEY" Default="" Mode="" Display="always" Required="true" Mask="true" Description="Encrypts stored credentials (OAuth tokens, API keys, env vars). Generate with: openssl rand -hex 32"/>
+  <Config Type="Variable" Name="Session Secret" Target="MCP_WRANGLER_SESSION_SECRET" Default="" Mode="" Display="always" Required="true" Mask="true" Description="Signs web UI session cookies. Generate with: openssl rand -hex 32"/>
+  <Config Type="Variable" Name="Admin Password" Target="MCP_WRANGLER_ADMIN_PASSWORD" Default="" Mode="" Display="always" Required="true" Mask="true" Description="Password for the admin web UI account (only used on first run)."/>
+  <Config Type="Variable" Name="Database Path" Target="MCP_WRANGLER_DB_PATH" Default="/data/mcp-wrangler.db" Mode="" Display="advanced" Required="false" Description="Path to SQLite database inside the container.">/data/mcp-wrangler.db</Config>
+  <Config Type="Variable" Name="Base URL" Target="MCP_WRANGLER_BASE_URL" Default="" Mode="" Display="advanced" Required="false" Description="External URL for OAuth callbacks (e.g., https://mcp.yourdomain.com). Leave blank for http://localhost:PORT."/>
+</Container>
