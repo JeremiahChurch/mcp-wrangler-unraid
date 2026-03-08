@@ -8,6 +8,10 @@
     <TagDescription>Latest stable release</TagDescription>
   </Branch>
   <Branch>
+    <Tag>0.2.2</Tag>
+    <TagDescription>v0.2.2 - OAuth auto-discovery for manual server entry</TagDescription>
+  </Branch>
+  <Branch>
     <Tag>0.2.1</Tag>
     <TagDescription>v0.2.1 - Docker env-var config fix</TagDescription>
   </Branch>
@@ -68,6 +72,10 @@
       <Value>/data/mcp-wrangler.db</Value>
       <Name>MCP_WRANGLER_DB_PATH</Name>
     </Variable>
+    <Variable>
+      <Value/>
+      <Name>MCP_WRANGLER_BASE_URL</Name>
+    </Variable>
   </Environment>
   <Config Type="Port" Name="Web UI Port" Target="8080" Default="8080" Mode="tcp" Display="always" Required="true" Description="Port for the MCP Wrangler web UI and API proxy.">8080</Config>
   <Config Type="Path" Name="Data Directory" Target="/data" Default="/mnt/user/appdata/mcp-wrangler" Mode="rw" Display="always" Required="true" Description="Persistent storage for SQLite database.">/mnt/user/appdata/mcp-wrangler</Config>
@@ -76,5 +84,5 @@
   <Config Type="Variable" Name="Session Secret" Target="MCP_WRANGLER_SESSION_SECRET" Default="" Mode="" Display="always" Required="true" Mask="true" Description="Signs web UI session cookies. Generate with: openssl rand -hex 32"/>
   <Config Type="Variable" Name="Admin Password" Target="MCP_WRANGLER_ADMIN_PASSWORD" Default="" Mode="" Display="always" Required="true" Mask="true" Description="Password for the admin web UI account (only used on first run)."/>
   <Config Type="Variable" Name="Database Path" Target="MCP_WRANGLER_DB_PATH" Default="/data/mcp-wrangler.db" Mode="" Display="advanced" Required="false" Description="Path to SQLite database inside the container.">/data/mcp-wrangler.db</Config>
-  <Config Type="Variable" Name="Base URL" Target="MCP_WRANGLER_BASE_URL" Default="" Mode="" Display="advanced" Required="false" Description="External URL for OAuth callbacks (e.g., https://mcp.yourdomain.com). Leave blank for http://localhost:PORT."/>
+  <Config Type="Variable" Name="Base URL" Target="MCP_WRANGLER_BASE_URL" Default="" Mode="" Display="always" Required="false" Description="External URL for OAuth callbacks (e.g., https://mcp.yourdomain.com). Required if using OAuth with remote MCP servers. Leave blank for http://localhost:PORT."/>
 </Container>
