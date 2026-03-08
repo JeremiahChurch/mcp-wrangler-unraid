@@ -8,6 +8,10 @@
     <TagDescription>Latest stable release</TagDescription>
   </Branch>
   <Branch>
+    <Tag>0.2.3</Tag>
+    <TagDescription>v0.2.3 - Fix Docker API version negotiation for older hosts</TagDescription>
+  </Branch>
+  <Branch>
     <Tag>0.2.2</Tag>
     <TagDescription>v0.2.2 - OAuth auto-discovery for manual server entry</TagDescription>
   </Branch>
