@@ -33,50 +33,6 @@
   <TemplateURL>https://raw.githubusercontent.com/JeremiahChurch/mcp-wrangler-unraid/main/mcp-wrangler/mcp-wrangler.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/JeremiahChurch/mcp-wrangler-unraid/main/images/mcp-wrangler-icon.png</Icon>
   <ExtraParams/>
-  <Networking>
-    <Mode>bridge</Mode>
-    <Publish>
-      <Port>
-        <HostPort>8080</HostPort>
-        <ContainerPort>8080</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-    </Publish>
-  </Networking>
-  <Data>
-    <Volume>
-      <HostDir>/mnt/user/appdata/mcp-wrangler</HostDir>
-      <ContainerDir>/data</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
-      <HostDir>/var/run/docker.sock</HostDir>
-      <ContainerDir>/var/run/docker.sock</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-  </Data>
-  <Environment>
-    <Variable>
-      <Value/>
-      <Name>MCP_WRANGLER_ENCRYPTION_KEY</Name>
-    </Variable>
-    <Variable>
-      <Value/>
-      <Name>MCP_WRANGLER_SESSION_SECRET</Name>
-    </Variable>
-    <Variable>
-      <Value/>
-      <Name>MCP_WRANGLER_ADMIN_PASSWORD</Name>
-    </Variable>
-    <Variable>
-      <Value>/data/mcp-wrangler.db</Value>
-      <Name>MCP_WRANGLER_DB_PATH</Name>
-    </Variable>
-    <Variable>
-      <Value/>
-      <Name>MCP_WRANGLER_BASE_URL</Name>
-    </Variable>
-  </Environment>
   <Config Type="Port" Name="Web UI Port" Target="8080" Default="8080" Mode="tcp" Display="always" Required="true" Mask="false" Description="Port for the MCP Wrangler web UI and API proxy.">8080</Config>
   <Config Type="Path" Name="Data Directory" Target="/data" Default="/mnt/user/appdata/mcp-wrangler" Mode="rw" Display="always" Required="true" Mask="false" Description="Persistent storage for SQLite database.">/mnt/user/appdata/mcp-wrangler</Config>
   <Config Type="Path" Name="Docker Socket" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="rw" Display="advanced" Required="true" Mask="false" Description="Docker socket for managing MCP server containers (stdio and HTTP server types).">/var/run/docker.sock</Config>
