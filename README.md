@@ -1,6 +1,6 @@
 # Arc Relay - Unraid Template
 
-Docker template for installing [Arc Relay](https://github.com/comma-compliance/arc-relay) (formerly MCP Wrangler) on Unraid via Community Applications.
+Docker template for installing [Arc Relay](https://github.com/comma-compliance/arc-relay) on Unraid via Community Applications.
 
 ## Manual Installation (before CA approval)
 
@@ -11,17 +11,6 @@ Docker template for installing [Arc Relay](https://github.com/comma-compliance/a
 5. Go back to **Add Container** and select **arc-relay** from the template dropdown
 6. Fill in the required fields (encryption key, admin password)
 7. Click **Apply**
-
-## Upgrading from MCP Wrangler
-
-If you have an existing MCP Wrangler installation:
-
-1. Note your current encryption key (from the container env vars)
-2. Remove the old `mcp-wrangler` container
-3. Install `arc-relay` from the template
-4. Set the **Data Directory** to your existing path (`/mnt/user/appdata/mcp-wrangler`)
-5. Use the **same encryption key** - without it, your encrypted configs are unreadable
-6. Either rename your DB file from `mcp-wrangler.db` to `arc-relay.db`, or set **Database Path** to `/data/mcp-wrangler.db`
 
 ## Configuration
 
