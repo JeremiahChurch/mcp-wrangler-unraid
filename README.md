@@ -6,7 +6,7 @@ Docker template for installing [Arc Relay](https://github.com/comma-compliance/a
 
 1. In the Unraid web UI, go to **Docker** > **Add Container**
 2. Click **Template Repositories** at the bottom
-3. Add this URL: `https://github.com/JeremiahChurch/mcp-wrangler-unraid`
+3. Add this URL: `https://github.com/JeremiahChurch/arc-relay-unraid`
 4. Click **Save**
 5. Go back to **Add Container** and select **arc-relay** from the template dropdown
 6. Fill in the required fields (encryption key, admin password)
