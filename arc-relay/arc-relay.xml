@@ -30,8 +30,8 @@
   </Overview>
   <Category>Tools: AI</Category>
   <WebUI>http://[IP]:[PORT:8080]</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/JeremiahChurch/mcp-wrangler-unraid/main/arc-relay/arc-relay.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/JeremiahChurch/mcp-wrangler-unraid/main/images/mcp-wrangler-icon.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/JeremiahChurch/arc-relay-unraid/main/arc-relay/arc-relay.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/JeremiahChurch/arc-relay-unraid/main/images/arc-relay-icon.png</Icon>
   <ExtraParams/>
   <Config Type="Port" Name="Web UI Port" Target="8080" Default="8080" Mode="tcp" Display="always" Required="true" Mask="false" Description="Port for the Arc Relay web UI and API proxy.">8080</Config>
   <Config Type="Path" Name="Data Directory" Target="/data" Default="/mnt/user/appdata/arc-relay" Mode="rw" Display="always" Required="true" Mask="false" Description="Persistent storage for SQLite database. Upgrading from MCP Wrangler? Point this at your existing /mnt/user/appdata/mcp-wrangler directory.">/mnt/user/appdata/arc-relay</Config>
