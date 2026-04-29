@@ -8,12 +8,12 @@
     <TagDescription>Latest stable release</TagDescription>
   </Branch>
   <Branch>
-    <Tag>0.4.0</Tag>
-    <TagDescription>v0.4.0 - Rename to Arc Relay, middleware encryption, SSRF hardening</TagDescription>
+    <Tag>0.1.1</Tag>
+    <TagDescription>v0.1.1 - OAuth re-registration fix, dashboard /connect link fix, Sentry DSN docs</TagDescription>
   </Branch>
   <Branch>
-    <Tag>0.3.0</Tag>
-    <TagDescription>v0.3.0 - Middleware pipeline, invite tokens, CLI onboarding</TagDescription>
+    <Tag>0.1.0</Tag>
+    <TagDescription>v0.1.0 - Initial public release</TagDescription>
   </Branch>
   <Network>bridge</Network>
   <Privileged>false</Privileged>
